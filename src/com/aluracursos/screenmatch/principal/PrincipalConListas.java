@@ -4,8 +4,7 @@ import com.aluracursos.screenmatch.modelos.Pelicula;
 import com.aluracursos.screenmatch.modelos.Serie;
 import com.aluracursos.screenmatch.modelos.Titulo;
 
-import java.util.ArrayList;
-import java.util.Collections;
+import java.util.*;
 
 public class PrincipalConListas {
     public static void main(String[] args) {
@@ -19,7 +18,7 @@ public class PrincipalConListas {
 
         Pelicula p1 = peliculaDeBruno;
 
-        ArrayList<Titulo> lista = new ArrayList<>();
+        List<Titulo> lista = new LinkedList<>();
         lista.add(miPelicula);
         lista.add(otraPelicula);
         lista.add(peliculaDeBruno);
@@ -43,5 +42,8 @@ public class PrincipalConListas {
 
         Collections.sort(lista);
         System.out.println("Lista de titulos ordenados: " + lista);
+
+        lista.sort(Comparator.comparing(Titulo::getFechaDeLanzamiento));
+        System.out.println("Lista ordenada por fecha: " + lista);
     }
 }
